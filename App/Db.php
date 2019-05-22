@@ -17,15 +17,16 @@ class Db
             $config['user'], $config['password']);
     }
 
-    public function query($sql, $data = [], $class)
+    public function query($sql, $params = [], $class)
     {
         $sth = $this->dbh->prepare($sql);
-        $sth->execute($data);
+        $sth->execute($params);
         return $sth->fetchAll(PDO::FETCH_CLASS, $class);
     }
 
-    public function execute($sql)
+    public function execute($sql, $params = [])
     {
-
+        $sth = $this->dbh->prepare($sql);
+        return $sth->execute($params);
     }
 }

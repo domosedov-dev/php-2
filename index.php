@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Article;
+
 @require __DIR__ . '/autoload.php';
 
-$data = \App\Models\Article::findAll();
+$news = Article::findLast('5');
 
-var_dump($data);
+include __DIR__ . '/App/View/templates/index.php';
 
 
 
