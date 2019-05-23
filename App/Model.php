@@ -31,4 +31,34 @@ abstract class Model
 
         return $db->query('SELECT * FROM ' . static::TABLE, [], static::class);
     }
+
+    public function insert()
+    {
+        $fields = get_object_vars($this);
+
+        $cols = [];
+
+        $data = [];
+
+
+
+        foreach ($fields as $name => $value) {
+            if($name == 'id') {
+                continue;
+            }
+            $cols[] = $name;
+            $data[':' . $name] = $value;
+        }
+
+        var_dump($cols);
+        var_dump($data);
+
+        $sql = 'INSERT INTO ' . static::TABLE . '(' . implode(',', $cols) . ') VALUES (' . implode(',', array_keys($data)) . ')';
+
+        $db = new Db();
+
+        $db->execute($sql, $data);
+
+        $this->id = $db->getLastId();
+    }
 }

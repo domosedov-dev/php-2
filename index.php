@@ -1,14 +1,12 @@
 <?php
 
-use App\Models\Article;
-
 @require __DIR__ . '/autoload.php';
 
-$news = Article::findLast('5');
+$article = new \App\Models\Article();
+$article->title = ' Example Article Title';
+$article->content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolore ex ipsam non odio porro possimus praesentium,
+    tempora vero vitae!';
 
-include __DIR__ . '/App/View/templates/index.php';
+//$article->insert();
 
-
-
-
-
+var_dump($article);
