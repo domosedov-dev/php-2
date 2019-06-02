@@ -50,9 +50,6 @@ abstract class Model
             $data[':' . $name] = $value;
         }
 
-        var_dump($cols);
-        var_dump($data);
-
         $sql = 'INSERT INTO ' . static::TABLE . '(' . implode(',', $cols) . ') VALUES (' . implode(',', array_keys($data)) . ')';
 
         $db = new Db();
@@ -60,5 +57,9 @@ abstract class Model
         $db->execute($sql, $data);
 
         $this->id = $db->getLastId();
+    }
+
+    public function update()
+    {
     }
 }
