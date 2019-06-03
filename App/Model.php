@@ -40,8 +40,6 @@ abstract class Model
 
         $data = [];
 
-
-
         foreach ($fields as $name => $value) {
             if($name == 'id') {
                 continue;
@@ -61,5 +59,16 @@ abstract class Model
 
     public function update()
     {
+
+    }
+
+    public function save()
+    {
+
+    }
+
+    public function delete()
+    {
+
     }
 }

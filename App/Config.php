@@ -8,15 +8,31 @@ class Config
 {
     private static $_instance = null;
 
-    private static $host = '';
-    private static $dbname = '';
-    private static $user = '';
-    private static $password = '';
+    private $config = [
+        'db' => [
+            'host' => 'localhost',
+            'dbname' => 'php2',
+            'user' => 'root',
+            'password' => '2001'
+        ]
+    ];
 
-    public $data = [];
-
-    public function __construct()
+    public static function getInstance()
     {
-        $this->data['db'] = ['host' => $this->host, 'dbname' => $this->dbname, 'charset' => $this->]
+        if(self::$_instance === null){
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
+    private function __construct(){}
+
+    private function __clone(){}
+
+    private function __wakeup(){}
+
+    public function getConfig()
+    {
+        return $this->config;
     }
 }
