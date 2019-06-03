@@ -6,7 +6,7 @@ use App\Models\Article;
 
 $articleID = $_GET['id'] ?? '1';
 
-$article = Article::findById($articleID)[0];
+$article = Article::findById($articleID);
 
 include __DIR__ . '/App/View/templates/article.php';
 

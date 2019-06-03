@@ -14,7 +14,9 @@ abstract class Model
     {
         $db = new Db();
 
-        return $db->query('SELECT * FROM ' . static::TABLE . ' WHERE id=:id', ['id' => $id], static::class);
+        $data =  $db->query('SELECT * FROM ' . static::TABLE . ' WHERE id=:id', ['id' => $id], static::class);
+
+        return $data ? $data[0] : null;
     }
 
     public static function findLast($count)
@@ -59,16 +61,47 @@ abstract class Model
 
     public function update()
     {
+        $fields = get_object_vars($this);
+        $cols = [];
+        $data = [];
+        $binds = [];
 
+        foreach ($fields as $name => $value) {
+            if($name == 'id') {
+                continue;
+            }
+            $cols[] = $name;
+            $data[':' . $name] = $value;
+        }
+
+        foreach ($cols as $key){
+            $binds[] = $key . '=:' . $key;
+        }
+
+        $sql = 'UPDATE ' . static::TABLE . ' SET ' .  implode(',', $binds) . ' WHERE id=' . $this->id;
+
+        $db = new Db();
+
+        $db->execute($sql, $data);
     }
 
     public function save()
     {
-
+        if(empty($this->id)) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
     }
 
     public function delete()
     {
+        $data['id'] = $this->id;
 
+        $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id=:id';
+
+        $db = new Db();
+
+        $db->execute($sql, $data);
     }
 }

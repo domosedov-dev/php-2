@@ -2,14 +2,9 @@
 
 @require __DIR__ . '/autoload.php';
 
-//$article = new \App\Models\Article();
-//$article->title = ' Example Article Title';
-//$article->content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolore ex ipsam non odio porro possimus praesentium,
-//    tempora vero vitae!';
-//
-////$article->insert();
-//
-//var_dump($article);
+$news = \App\Models\Article::findAll();
 
-$config = \App\Config::getInstance();
-$dsn = $config->getConfig();
+include __DIR__ . '/App/View/templates/index.php';
+
+include __DIR__ . '/App/View/templates/add.php';
+
