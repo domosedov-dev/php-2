@@ -7,7 +7,7 @@
     </form>
     <h1>News</h1>
 <?php
-    foreach ($news as $article) { ?>
+    foreach ($this->articles as $article) { ?>
         <article>
             <a href="<?='/article.php?id=' . $article->id; ?>"><h2><?=$article->title; ?></h2></a>
             <p><?=$article->content; ?></p>
