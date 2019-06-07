@@ -8,16 +8,3 @@
     <title>News</title>
 </head>
 <body>
-    <h1>News</h1>
-<?php
-    foreach ($news as $article) { ?>
-        <article>
-            <a href="<?='/article.php?id=' . $article->id; ?>"><h2><?=$article->title; ?></h2></a>
-            <p><?=$article->content; ?></p>
-        </article>
-    <?php } ?>
-
-
-
-</body>
-</html>

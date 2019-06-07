@@ -6,7 +6,7 @@ use App\Models\Article;
 
 $news = Article::findLast('5');
 
-include __DIR__ . '/App/View/templates/index.php';
+include __DIR__ . '/App/View/templates/news.php';
 
 
 
