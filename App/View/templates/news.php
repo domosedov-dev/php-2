@@ -10,6 +10,7 @@
     foreach ($this->articles as $article) { ?>
         <article>
             <a href="<?='/article.php?id=' . $article->id; ?>"><h2><?=$article->title; ?></h2></a>
+            <p>Автор: <?= $article->author->name; ?></p>
             <p><?=$article->content; ?></p>
             <a href="<?='/edit.php?id=' . $article->id; ?>">Редактировать</a>
             <a href="<?='/delete.php?id=' . $article->id; ?>">Удалить</a>
