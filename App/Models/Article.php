@@ -22,8 +22,24 @@ class Article extends Model
             if(!empty($this->author_id)) {
                 return Author::findById($this->author_id);
             } else {
-                return null;
+                return '';
             }
+        }
+    }
+
+    public function __set($name, $value)
+    {
+        if($name === 'author') {
+
+            if(Author::findByName($value) !== null) {
+                $this->author_id = Author::findByName($value)->id;
+            } else {
+                $newAuthor = new Author();
+                $newAuthor->name = $value;
+                $newAuthor->save();
+                $this->author_id = Author::findByName($value)->id;
+            }
+
         }
     }
 }

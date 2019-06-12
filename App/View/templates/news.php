@@ -1,8 +1,9 @@
 <?php include __DIR__. '/header.php'; ?>
     <h1>Add Article</h1>
     <form action="add.php" method="post">
-        <input type="text" name="title">
-        <input type="text" name="content">
+        <label>Заголовок</label><input type="text" name="title" required><br>
+        <label>Текст</label><input type="text" name="content" required><br>
+        <label>Автор</label><input type="text" name="author" required><br>
         <button type="submit">Add!</button>
     </form>
     <h1>News</h1>

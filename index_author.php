@@ -4,11 +4,8 @@ use App\Models\Author;
 
 @require __DIR__ . '/autoload.php';
 
-$author = Author::findAll();
+$authors = Author::findAll();
 
-var_dump($author);
+var_dump($authors);
 
-$article = \App\Models\Article::findById('1');
 
-var_dump($article->author);
-var_dump($article);

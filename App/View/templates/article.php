@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1><?=$article->title; ?></h1>
+    <p><?=$article->author->name; ?></p>
     <p><?=$article->content; ?></p>
 </body>
 </html>
