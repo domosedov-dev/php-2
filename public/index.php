@@ -1,6 +1,6 @@
 <?php
 
-@require __DIR__ . '/App/autoload.php';
+@require __DIR__ . '/../App/autoload.php';
 
 $ctrl = $_GET['ctrl'] ?? 'Index';
 

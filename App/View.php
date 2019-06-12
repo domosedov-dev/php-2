@@ -5,8 +5,9 @@ namespace App;
 
 
 use Countable;
+use Iterator;
 
-class View implements Countable, \Iterator
+class View implements Countable, Iterator
 {
     use Magic;
 

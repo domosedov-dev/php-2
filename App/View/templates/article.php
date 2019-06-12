@@ -8,8 +8,8 @@
     <title>Article</title>
 </head>
 <body>
-    <h1><?=$article->title; ?></h1>
-    <p><?=$article->author->name; ?></p>
-    <p><?=$article->content; ?></p>
+    <h1><?=$this->article->title; ?></h1>
+    <p><?=$this->article->author->name; ?></p>
+    <p><?=$this->article->content; ?></p>
 </body>
 </html>
