@@ -1,19 +1,13 @@
 <?php
 
-
 namespace App\Models;
 
-
 use App\Model;
-
 class Article extends Model
 {
     public const TABLE = 'news';
-
     public $title;
-
     public $content;
-
     public $author_id;
 
     public function __get($name)
@@ -39,7 +33,6 @@ class Article extends Model
                 $newAuthor->save();
                 $this->author_id = Author::findByName($value)->id;
             }
-
         }
     }
 }

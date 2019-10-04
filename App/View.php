@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App;
-
 
 use Countable;
 use Iterator;
@@ -12,9 +10,7 @@ class View implements Countable, Iterator
     use Magic;
 
     protected $data = [];
-
     private $position = 0;
-
     public function display($template)
     {
         echo $this->render($template);

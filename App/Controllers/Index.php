@@ -15,5 +15,4 @@ class Index extends Controller
         $this->view->articles = Article::findAll();
         $this->view->display(__DIR__ . '/../View/templates/news.php');
     }
-
 }

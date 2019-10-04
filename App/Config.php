@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App;
-
 
 class Config
 {
@@ -13,7 +11,7 @@ class Config
             'host' => 'localhost',
             'dbname' => 'php2',
             'user' => 'root',
-            'password' => '2001'
+            'password' => ''
         ]
     ];
 

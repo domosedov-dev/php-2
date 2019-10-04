@@ -2,10 +2,11 @@
 
 @require __DIR__ . '/../App/autoload.php';
 
-$ctrl = $_GET['ctrl'] ?? 'Index';
+$controller = $_GET['ctrl'] ?? 'Index';
+//var_dump($ctrl);
 
-$class = '\App\Controllers\\' . $ctrl;
+$class = '\App\Controllers\\' . $controller;
 
-$ctrl = new $class;
+$controller = new $class;
 
-$ctrl();
+$controller();

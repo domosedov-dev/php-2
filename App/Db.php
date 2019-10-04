@@ -1,15 +1,9 @@
 <?php
-
-
 namespace App;
-
-
 use PDO;
-
 class Db
 {
     protected $dbh;
-
     public function __construct()
     {
         $config = Config::getInstance();
