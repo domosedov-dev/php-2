@@ -19,6 +19,10 @@ class View implements Countable, Iterator
     public function render($template)
     {
         ob_start();
+        /*
+        * В подключаемом $template нам доступна переменная $this, 
+        * которая ссылается на текущий объект
+        */
         include $template;
         $content = ob_get_contents();
         ob_end_clean();
